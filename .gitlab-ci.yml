@@ -16,22 +16,6 @@ variables:
 
 image: maven:3-openjdk-11
 
-cache:
-  paths:
-    - .m2/repository
-
-.verify:
-  stage: test
-  script:
-    - 'mvn $MAVEN_CLI_OPTS verify'
-  except:
-    variables:
-      - $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-
-verify:jdk11:
-  extends:
-    - .verify
-
 test:jdk11:
   stage: test
   script: 

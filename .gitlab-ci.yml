@@ -38,9 +38,9 @@ test:jdk11:
     - 'mvn $MAVEN_CLI_OPTS test'
 
 build:jdk11:
-  stage: deploy
+  stage: build
   script:
-    - 'mvn $MAVEN_CLI_OPTS build'
+    - 'mvn $MAVEN_CLI_OPTS package'
   only:
     variables:
       - $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

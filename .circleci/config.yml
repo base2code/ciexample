@@ -33,7 +33,7 @@ jobs:
       - checkout
       - run:
           name: Scan with SonarQube
-          command: mvn clean verify sonar:sonar -Dsonar.projectKey= -Dsonar.host.url= -Dsonar.login=
+          command: mvn clean verify sonar:sonar -Dsonar.projectKey=CiExampleCircleCI
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -42,3 +42,4 @@ workflows:
     # Inside the workflow, you define the jobs you want to run.
     jobs:
       - build-and-test
+      - scan

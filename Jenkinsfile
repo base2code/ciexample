@@ -14,7 +14,7 @@ pipeline {
         }
         stage('SonarQube') {
             steps {
-                sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=CiExampleJenkins -Dsonar.host.url=https://sonarqube.base2code.dev -Dsonar.login=sqp_c7a53a9860ad53ea58945f51b266c17f4ba1d81c'
+                sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=CiExampleJenkins -Dsonar.host.url=https://sonarqube.base2code.dev -Dsonar.login=${SONAR_TOKEN}c'
             }
         }
         stage('Build') {

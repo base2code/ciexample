@@ -12,6 +12,14 @@ pipeline {
                 sh 'mvn $MAVEN_CLI_OPTS test'
             }
         }
+        stage('SonarQube') {
+            steps {
+                sh 'mvn clean verify sonar:sonar \
+  -Dsonar.projectKey=CiExampleJenkins \
+  -Dsonar.host.url=https://sonarqube.base2code.dev \
+      -Dsonar.login=${SONAR_TOKEN}'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn $MAVEN_CLI_OPTS package'
